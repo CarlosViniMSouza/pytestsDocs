@@ -1,22 +1,39 @@
 from flask import Flask
 from markupsafe import escape
+from flask import url_for
 
 app = Flask(__name__)
 
 
+@app.route("/project")
+def project():
+    return "<h1> The Project Page </h1>"
+
+
+@app.route("/about")
+def about():
+    return "<h1> About Projects </h1>"
+
+
 @app.route('/user/<username>')
-def show_user_profile(username):
+def showUserProfile(username):
     # show the user profile for that user
-    return f'User {escape(username)}'
+    return f'User: {escape(username)}'
 
 
 @app.route('/post/<int:post_id>')
-def show_post(post_id):
+def showPost(post_id):
     # show the post with the given id, the id is an integer
-    return f'Post {post_id}'
+    return f'Post N°{post_id}'
 
 
 @app.route('/path/<path:subpath>')
-def show_subpath(subpath):
+def showSubpath(subpath):
     # show the subpath after /path/
-    return f'Sub-path {escape(subpath)}'
+    return f'Subpath {escape(subpath)}'
+
+
+with app.test_request_context():
+    print(url_for('project'))
+    print(url_for('about'))
+    print(url_for('showPost', post_id=1))

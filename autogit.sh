@@ -1,4 +1,4 @@
 git add -A
-git commit -m "application in test -> added"
+git commit -m "time for think in any ideas"
 git push
 git status
