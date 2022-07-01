@@ -15,10 +15,14 @@ def about():
     return "<h1> About Projects </h1>"
 
 
-@app.route('/user/<username>')
-def showUserProfile(username):
-    # show the user profile for that user
-    return f'User: {escape(username)}'
+@app.route("/team")
+def team():
+    return {
+        "Component01": "subject01",
+        "Component02": "subject02",
+        "Component03": "subject03",
+        "Component04": "subject04"
+    }
 
 
 @app.route('/post/<int:post_id>')

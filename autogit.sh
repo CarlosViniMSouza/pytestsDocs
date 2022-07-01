@@ -1,4 +1,4 @@
 git add -A
-git commit -m "time for think in any ideas"
+git commit -m "function | team -> add"
 git push
 git status
